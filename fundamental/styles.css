@@ -1,0 +1,43 @@
+/* KeyboardEvent */
+#output {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  width: 95%;
+  margin: auto;
+}
+
+#output:focus-visible {
+  outline: 3px solid dodgerblue;
+}
+
+/* Handle keyboard events in a game */
+.world {
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  width: 400px;
+  height: 400px;
+}
+
+.world:focus-visible {
+  outline: 5px solid dodgerblue;
+}
+
+#spaceship {
+  fill: orange;
+  stroke: red;
+  stroke-width: 2px;
+}
+
+/* Mouse Clicks */
+body {
+  height: 200px;
+  background: beige;
+}
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 4px; /* rounds corners */
+  background: blue;
+  position: absolute;
+}

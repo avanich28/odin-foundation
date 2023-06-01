@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="DOM_script.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Fundamental</title>
+  </head>
+  <body>
+    <p>Fundamental Part 1 Assignment</p>
+    <script>
+      console.log('Hello, World!');
+      // 1
+      console.log(23 + 97);
+      // 2
+      console.log(1 + 2 + 3 + 4 + 5 + 6);
+      // 3
+      console.log((4 + 6 + 9) / 77);
+      // 4
+      let aaa = 10;
+      console.log(aaa);
+      console.log(9 * aaa);
+      let bbb = 7 * aaa;
+      console.log(bbb);
+      // 5
+      let max = 57;
+      let actual = max - 13;
+      let percentage = actual / max;
+      console.log(percentage);
+      // 6
+      console.log(' \n' - 2); // -2
+      console.log(true); // true
+      console.log(true + 1); // 2
+      console.log('\n' + 2); // 2(str)
+      console.log(+''); // 0
+    </script>
+
+    <p>Fundamental Part 2</p>
+    <button>Press me</button>
+
+    <p>Fundamental Part 3</p>
+    <input type="text" name="fname" class="text" />
+    <div class="output"></div>
+    <input type="text" class="inputTest" />
+    <p class="p2"></p>
+
+    <p>Fundamental Part 4</p>
+    <h2>demo1</h2>
+    <div id="demo"></div>
+    <h2>demo2</h2>
+    <div id="demo2"></div>
+    <h2>demo3</h2>
+    <div id="demo3"></div>
+    <h2>demo4</h2>
+    <div id="demo4"></div>
+    <h2>demo5</h2>
+    <div id="demo5"></div>
+    <h2>demo6</h2>
+    <div id="demo6"></div>
+    <h2>demo7</h2>
+    <div id="demo7"></div>
+
+    <br />
+    <button id="calculate">Start!</button>
+    <button id="clear">Clear!</button>
+    <p id="results"></p>
+
+    <label for="search"> Search by contact name: </label>
+    <input class="SS" id="search" type="text" />
+    <button id="buttonSearch">Search</button>
+    <p id="p"></p>
+
+    <label>Enter number: </label>
+    <input class="NN" id="number" type="text" />
+    <button id="buttonNumber">Generate integer squares</button>
+    <p id="p2">Output:</p>
+
+    <p>DOM Manipulation And Events</p>
+    <div id="container">
+      <div class="display"></div>
+      <div class="controls"></div>
+    </div>
+
+    <h1>THE TITLE OF YOUR WEBPAGE</h1>
+    <div id="container2"></div>
+    <br />
+
+    <div>Exercise</div>
+    <div id="container3"></div>
+
+    <div>Events</div>
+    <!-- Method 1 -->
+    <button onclick="alert('Hello World')">Click Me</button>
+
+    <!-- Method 2 -->
+    <button id="btn">Click Me</button>
+
+    <!-- Method 3 -->
+    <button id="btn1">Click Me Too</button>
+
+    <!-- These 3 methods can be used with named functions -->
+    <!-- Method 1 -->
+    <button onclick="alertFunction()">CLICK ME BABY</button>
+
+    <!-- Attaching Listeners to Groups of Nodes -->
+    <div id="container4">
+      <button id="1">Click Me</button>
+      <button id="2">Click Me</button>
+      <button id="3">Click Me</button>
+    </div>
+
+    <!-- DEV: Understanding Callbacks -->
+    <button id="myId">Click DEV</button>
+
+    <!-- MDN: KeyboardEvent -->
+    <!-- KeyboardEvent.key -->
+    <p>
+      Press keys on the keyboard to see what the KeyboardEvent's key and code
+      values are for each one.
+    </p>
+    <div id="output" tabindex="0"></div>
+
+    <!-- Handle keyboard events in a game ไม่ขึ้น -->
+    <p>Use the WASD (ZQSD on AZERTY) keys to move and steer.</p>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      class="world"
+      tabindex="0"
+    >
+      <polygon id="spaceship" points="15,0 0,30 30,30" />
+    </svg>
+    <!-- EJS Chapter 14 -->
+    <blockquote id="quote">
+      No book can ever be finished. While working on it we learn just enough to
+      find it immature the moment we turn away from it
+    </blockquote>
+
+    <p data-classified="secret">The launch code is 00000000.</p>
+    <p data-classified="unclassified">I have two feet.</p>
+
+    <p class="layout" style="border: 3px solid red">I'm box in</p>
+
+    <h1>Mountains</h1>
+
+    <div id="mountains"></div>
+
+    <!-- EJS Chapter 15 -->
+    <button id="once">Click Me</button>
+    <button id="event">Click me any way you want</button>
+    <p id="propagation1">
+      A paragraph with a <button id="propagation2">button</button>
+    </p>
+
+    <button id="tar">A</button>
+    <button id="tar">B</button>
+    <button id="tar">C</button>
+
+    <a href="https://www.mozilla.org/en-US/about/manifesto/">MDN</a>
+
+    <p id="keyEvent">This page turns violet when you hold the V key.</p>
+
+    <p>Press Control-Space to continue</p>
+
+    <p>Drag the bar to change its width:</p>
+    <div
+      class="mouseMotion"
+      style="background: orange; width: 60px; height: 20px"
+    ></div>
+
+    <!-- Traversy -->
+    <header id="main-header" class="bg-success text-white p-4 mb-3">
+      <div class="container">
+        <h1 id="header-title">Item Lister</h1>
+      </div>
+    </header>
+    <div id="container">
+      <div id="main" class="card card-body">
+        <h2 class="title">Add items</h2>
+        <form class="form-inline mb-3">
+          <input id="textBrad" type="text" class="form-control mr-2" />
+          <select class="form-control mr-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <input type="submit" class="btn btn-dark" value="Submit" />
+        </form>
+        <h2 class="title">Items</h2>
+        <ul id="items" class="list-group">
+          <li class="list-group-item">Item 1</li>
+          <li class="list-group-item">Item 2</li>
+          <li class="list-group-item">Item 3</li>
+          <li class="list-group-item">Item 4</li>
+        </ul>
+        <div id="outputBrad"></div>
+        <br />
+        <button id="button">Click</button>
+        <div
+          id="box"
+          style="width: 400px; height: 200px; background: darksalmon"
+        >
+          <h3>HELLO</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

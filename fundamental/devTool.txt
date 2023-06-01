@@ -1,0 +1,25 @@
+Unit: Javascript Developer Tools
+
+Unit: Problem Solving
+
+1. My program have a user interface.
+It have a nav bar, main content, footer, Sidebar, chatBox.
+
+Navbar: Left-Logo Right-Home Profile About Topic Login (email + password) and search box
+
+MainContent: Picture with welcome message or quote, Content of products, slice tab for viewing product.
+
+Sidebar: Listing the topic or the product categories
+
+chatBox: icon and window for allowing users to ask question.
+
+////////////////////
+
+Topic: How to think like a programmer - lessons in problem Solving
+
+1. Understand
+2. Plan
+3. Pseudocode
+4. Divide (into sub-problem)
+Stuck? Google on sub-problem only
+Practice

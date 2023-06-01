@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learning the DOM</title>
+
+    <style>
+      /* How To Access Elements in the DOM */
+      /*
+      html {
+        font-family: sans-serif;
+        color: #333;
+      }
+
+      body {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      div,
+      article {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #fbfbfb;
+      }
+      */
+      /* How To Traverse the DOM */
+      /*
+      * {
+        border: 2px solid #faf7f7;
+        padding: 15px;
+        margin: 15px;
+      }
+
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        max-width: 600px;
+        font-family: sans-serif;
+        color: #333;
+      }
+      */
+      /* How To Modify Attributes, Classes, and Styles in the DOM */
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+        font-family: sans-serif;
+      }
+
+      .active {
+        border: 2px solid blue;
+      }
+
+      .warning {
+        border: 2px solid red;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      div {
+        border: 2px dashed lightgrey;
+        padding: 15px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body style="background-color: fuchsia">
+    <!-- Topic 1 -->
+    <h1>Document Object Model</h1>
+    <a id="nav" href="digitalOcean-index.html">Home</a>
+
+    <!-- Topic 2 -->
+    <h1>An element node</h1>
+    <!-- a comment node -->
+    A text node.
+
+    <!-- Listen and action by adding event listener -->
+    <button id="changeBackground">Change Background Color</button>
+
+    <!-- Topic 3 -->
+    <h1>Accessing Elements in the DOM</h1>
+
+    <h2>ID (#demo)</h2>
+    <div id="demo">Access me by ID</div>
+    <div id="demo">Access me by ID (2)</div>
+
+    <h2>Class (.demo)</h2>
+    <div class="demo">Access me by class (1)</div>
+    <div class="demo">Access me by class (2)</div>
+
+    <h2>Tag (article)</h2>
+    <article>Access me by tag (1)</article>
+    <article>Access me by tag (2)</article>
+
+    <h2>Query Selector</h2>
+    <div id="demo-query">Access me by query</div>
+
+    <h2>Query Selector All</h2>
+    <div class="demo-query-all">Access me by query all (1)</div>
+    <div class="demo-query-all">Access me by query all (2)</div>
+
+    <!-- Topic 4 -->
+    <h1>Shark World</h1>
+    <p>
+      The world's leading source on <strong>shark</strong> related information.
+    </p>
+    <h2>Types of Sharks</h2>
+    <ul>
+      <li>Hammerhead</li>
+      <li>Tiger</li>
+      <li>Great White</li>
+    </ul>
+
+    <!-- Topic 5 -->
+    <div class="topic5"></div>
+    <ul class="topic5">
+      <li>Buy groceries</li>
+      <li>Feed the cat</li>
+      <li>Do laundry</li>
+    </ul>
+
+    <!-- Topic 6 -->
+    <div id="demo-id">Demo ID</div>
+
+    <div class="demo-class">Demo Class 1</div>
+    <div class="demo-class">Demo Class 2</div>
+
+    <img src="images/shark.jpeg" width="200" height="250" />
+
+    <div class="normal">Div 1</div>
+    <div class="active">Div 2</div>
+
+    <div
+      class="modifyCss"
+      style="height: 100px; width: 100px; border: 2px solid black"
+    >
+      Div
+    </div>
+
+    <!-- Topic 7 -->
+    <!-- 1. Inline event handlers -->
+    <button onclick="changeText()">Click me</button>
+    <p class="inline">Try to change me.</p>
+
+    <button class="property">Click me</button>
+    <p class="property">I will change.</p>
+
+    <button class="listener">Click me</button>
+    <p class="listener">I will change.</p>
+
+    <p class="eventObj"></p>
+
+    <section>
+      <div id="one">One</div>
+      <div id="two">Two</div>
+      <div id="three">Three</div>
+    </section>
+
+    <script>
+      // Topic 1: Introduction to the DOM
+      console.log(document);
+      console.log(document.body);
+      document.body.style.backgroundColor = 'wheat';
+
+      // Topic 2: Understanding the DOM Tree and Nodes
+      // assign element to a var
+      let navLink = document.getElementById('nav'); // get entire element
+      navLink.href = 'https://www.wikipedia.org';
+      navLink.textContent = 'Navigate to Wikipedia';
+      console.log(navLink); // element updated
+
+      // All items in the DOM are defined as nodes.
+      // Document Nodes (document)/ Element nodes / Text Nodes / Comment Nodes / Attribute Nodes
+
+      // In console, $0.nodeType = 1
+      // $0.nodeType (1 3 8)
+      // $0.nodeValue ('\n A text node.\n  ')
+      // $0.nodeName (H1)
+
+      // Events
+      let button = document.getElementById('changeBackground');
+
+      button.addEventListener('click', () => {
+        // action will go here
+        document.body.style.backgroundColor = 'fuchsia';
+      });
+
+      // Topic 3: How To Access Elements in the DOM
+      // id can select only one
+      const demoId = document.getElementById('demo');
+      console.log(demoId);
+      demoId.style.border = '1px solid purple';
+
+      // Class
+      const demoClass = document.getElementsByClassName('demo');
+      console.log(demoClass); // HTMLCollection
+      demoClass[0].style.border = '1px solid orange';
+      // for loop for apply all elements
+      for (let i = 0; i < demoClass.length; i++) {
+        demoClass[i].style.border = '1px solid orange';
+      }
+
+      // Tag
+      const demoTag = document.getElementsByTagName('article');
+      for (let i = 0; i < demoTag.length; i++) {
+        demoTag[i].style.border = '1px solid blue';
+      }
+
+      // Query
+      // return the first element that match the query
+      const demoQuery = document.querySelector('#demo-query');
+
+      // QueryAll
+      // collect all the elements that match a specific query
+      const demoQueryAll = document.querySelectorAll('.demo-query-all');
+      demoQueryAll.forEach(query => {
+        query.style.border = '1px solid green';
+      });
+
+      // More than 1 selector
+      // querySelector('div, article') will match div or article, whichever appears first in the document.
+
+      // querySelectorAll('div, article') will match all div and article values in the document.
+
+      // Topic 4: How To Traverse the DOM
+      const h1 = document.getElementsByTagName('h1')[0];
+      const p = document.getElementsByTagName('p')[0];
+      const ul = document.getElementsByTagName('ul')[0];
+
+      // 1 Parent Nodes
+      // document.documentElement => html (ELEMENT_NODE)
+      // document.head, document.body
+      console.log(p.parentNode); // body
+      console.log(p.parentNode.parentNode); // html
+
+      const html = document.documentElement;
+      console.log(html.parentNode); // #document
+      console.log(html.parentElement); // null
+
+      // 2 Children Nodes
+      // - Property
+      // childNodes
+      // firstChild
+      // lastChild
+      // children
+      // firstElementChild
+      // lastElementChild
+
+      // childNodes
+      console.log(ul.childNodes); // include text (whitespace)
+      // console.log(firstChild); // Error whitespace
+
+      // children (no whitespace)
+      console.log(ul.children); // [li, li, li] HTMLCollection
+      console.log(ul.firstElementChild); // <li>...<li>
+
+      ul.firstElementChild.style.background = 'yellow';
+
+      for (let element of ul.children) {
+        element.style.background = 'yellow';
+      }
+
+      // childNodes is helpful when accessing both text and elements
+      console.log(p.childNodes);
+      for (let element of p.childNodes) {
+        console.log(element);
+      }
+
+      console.log(document.body.children);
+      document.body.children[22].lastElementChild.style.background = 'fuchsia';
+
+      // 3 Sibling Nodes
+      // previousSibling // next text
+      // nextSibling
+      // previousElementSibling // element only
+      // nextElementSibling
+
+      const tiger = ul.children[1];
+      tiger.nextElementSibling.style.background = 'coral';
+      tiger.previousElementSibling.style.background = 'aquamarine';
+
+      // Topic 5: How To Make Changes to the DOM
+      // createElement()
+      // createTextNodes()
+      // node.textContent = ...
+      // node.innerHTML = ...
+
+      // 1 Creating New Nodes
+      // createElement() + textContent = a complete element node
+      const paragraph = document.createElement('p');
+      console.log(paragraph); // <p><p>
+
+      paragraph.textContent = "I'm a brand new paragraph.";
+      console.log(paragraph); // <p>I'm a brand new paragraph</p>
+
+      // innerHTML = add HTML & text into element
+      paragraph.innerHTML = "I'm a paragraph with <strong>bold</strong>.";
+      console.log(paragraph);
+
+      // createTextNodes()
+      // newElements (DIV) + textNodes
+      const text = document.createTextNode("I'm a new text node.");
+      console.log(text); // 'I\'m a new text nodes.'
+
+      const test = document.querySelector('.topic5');
+      test.appendChild(text);
+      console.log(test.nodeName); // DIV
+
+      // 2 Inserting Nodes into the DOM
+      // node.appendChild()
+      // node.insertBefore()
+      // node.replaceChild()
+
+      // To-do list ul element
+      const todoList = document.querySelector('ul.topic5');
+
+      // create new to-do
+      const newTodo = document.createElement('li');
+      newTodo.textContent = 'Do homework';
+      newTodo.style.color = 'red';
+
+      // - appendChild -
+      todoList.appendChild(newTodo);
+
+      // create new to-do
+      const anotherTodo = document.createElement('li');
+      anotherTodo.textContent = 'Pay bills';
+      anotherTodo.style.color = 'green';
+
+      // - insertBefore -
+      // parentNode.insertBefore(newNode, nextSibling)
+      todoList.insertBefore(anotherTodo, todoList.firstElementChild);
+
+      // create modify to-do
+      const modifiedTodo = document.createElement('li');
+      modifiedTodo.textContent = 'Feed the dog';
+      modifiedTodo.style.color = 'orange';
+
+      console.log(todoList.children);
+
+      // - replaceChild -
+      todoList.replaceChild(modifiedTodo, todoList.children[2]);
+
+      // 3 Removing Nodes from the DOM
+      // node.removeChild()
+      // node.remove()
+      todoList.removeChild(todoList.lastElementChild); // homework
+
+      todoList.children[1].remove(); // Buy groceries
+
+      // Topic 6: How To Modify Attributes, Classes, and Styles in the DOM
+
+      // 1 Review of Selecting Elements
+      // .querySelector() and .getElementById()
+      // Both methods will return a single element
+      const demoId2 = document.querySelector('#demo-id');
+      // Change the text of one element
+      demoId2.textContent = 'demo ID text updated';
+
+      // grab all elements
+      // Get a NodeList of all .demo element
+      const demoClasses = document.querySelectorAll('.demo-class');
+      console.log(demoClasses); // Nodelists
+
+      // Change the text of multiple elements with a loop
+      demoClasses.forEach(element => {
+        element.textContent = 'All demo classes updated.';
+      });
+
+      // Access the first element in the NodeList
+      demoClasses[0];
+
+      // Note: The methods getElementsByClassName() and getElementsByTagName() will return HTML collections which do not have access to the forEach() method that querySelectorAll() has. In these cases, you will need to use a standard for loop to iterate through the collection.
+
+      // 2 Modifying Attributes
+      // name/value pairs
+
+      // - conditional statement
+      // hasAttribute() true false
+      // getAttribute() valueAtr or null
+
+      // - modify the DOM
+      // setAttribute() ('href', 'index.html')
+      // removeAttribute() 'href'
+
+      // Assign image element
+      const img = document.querySelector('img');
+
+      img.hasAttribute('src'); // true
+      img.getAttribute('src'); // images/shark.jpeg
+      img.removeAttribute('src'); // remove the src attribute and value
+
+      img.setAttribute('src', 'images/octopus.jpeg');
+
+      // 3 Modifying Classes
+      // className // gets or sets class value
+      // classList.add()
+      // classList.toggle() // toggle a class on or off
+      // classList.contains() // true false
+      // classList.replace() // replace('old', 'new')
+      // classList.remove()
+
+      // - className -
+      // Select the first div
+      const div = document.querySelector('div.normal');
+
+      // Assign the warning class to the first div
+      div.className = 'warning'; // override the exist value and can use to get current value without =
+      // can also use setAttribute(,)
+
+      // - classList -
+      const activeDiv = document.querySelector('.active');
+
+      activeDiv.classList.add('hidden');
+      activeDiv.classList.remove('hidden');
+      activeDiv.classList.toggle('hidden');
+      activeDiv.classList.replace('active', 'warning');
+
+      // 4 Modifying Styles
+      // Style property (add or edit an inline style directly)
+      const div1 = document.querySelector('div.modifyCss');
+
+      // Apply style to div
+      div1.setAttribute('style', 'text-align: center'); // can set only 1 inline styles!
+
+      div1.style.height = '100px';
+      div1.style.width = '100px';
+      div1.style.border = '2px solid black';
+
+      // JS cannot write in kebab-case!
+      // need to change to camelCase
+
+      // Make div into a circle and vertically center the text
+      div1.style.borderRadius = '50%';
+      div1.style.display = 'flex';
+      div1.style.justifyContent = 'center';
+      div1.style.alignItems = 'center';
+
+      // Topic 7: Understanding Events in Javascript
+
+      // - Events Handlers and Event Listeners -
+      // 1. Inline Event Handler Attributes
+      const changeText = () => {
+        const p = document.querySelector('p.inline');
+        p.textContent = 'I changed because of an inline event handler.';
+      };
+
+      // 2. Event Handlers Properties
+      // Function to modify the text content of the paragraph
+      const changeText1 = () => {
+        const p = document.querySelector('p.property');
+
+        p.textContent = 'I changed because of an event handler property.';
+      };
+
+      // Add event handler as a property of button element
+      const button1 = document.querySelector('button.property');
+      button1.onclick = changeText1;
+
+      // set multiple onclick properties will cause all but the last one to be overwritten.
+      const alertText = () => {
+        alert('Will I alert?');
+      };
+
+      // Events can be overwritten
+      button1.onclick = changeText; // overwritten
+      button1.onclick = alertText;
+
+      // 3. Event Listeners
+      const changeText2 = () => {
+        const p = document.querySelector('p.listener');
+
+        p.textContent = 'I changed because of an event listener.';
+      };
+
+      // Listen for click event
+      const pListener = document.querySelector('p.listener');
+      const button2 = document.querySelector('button.listener');
+      button2.addEventListener('click', changeText2);
+
+      // We can set multiple event listeners on the same element
+      const alertText2 = () => {
+        alert('Will I alert?');
+      };
+
+      // Multiple listeners can be added to the same event and element
+      // Both events will fire
+      button2.addEventListener('click', changeText2);
+      button2.addEventListener('click', alertText2);
+
+      // 3.1 Anonymous function (no name)
+      // An anonymous function on an event listener
+      button2.addEventListener('click', () => {
+        pListener.textContent = 'Will I change?';
+      });
+
+      // Remove alert function from button element
+      button2.removeEventListener('click', alertText2);
+
+      // You can use addEventListener() on the document and window object.
+
+      // - Common Events -
+      // 1. Mouse Events (= touch device)
+      // click (mousedown + mouseup)
+      // dblclick
+      // mouseenter
+      // mouseleave (hover effect)
+      // mousemove (hover effect)
+
+      // 2. Form Events
+      // input element being selected or unselected
+      // submit
+      // focus
+      // blur
+
+      // 3. Keyboard Events
+      // keydown
+      // keyup
+      // keypress (no SHIFT ALT DELETE)
+
+      // Property
+      // key (a)
+      // code (KeyA)
+
+      // Test the key and code properties
+      document.addEventListener('keydown', event => {
+        console.log('key: ' + event.key);
+        console.log('code: ' + event.code);
+      });
+
+      // document vs window ??? 😆
+      window.addEventListener('keydown', event => {
+        console.log(event.key); // f
+        console.log(event.code); // KeyF
+      });
+
+      // - Event Objects -
+      // 1
+      // Each type of event has its own extensions, such as KeyboardEvent and MouseEvent.
+
+      // Pass an event through to a listener
+      document.addEventListener('keydown', event => {
+        let element = document.querySelector('p.eventObj');
+
+        // Set variables for keydown codes
+        let a = 'KeyA';
+        let s = 'KeyS';
+        let d = 'KeyD';
+        let w = 'KeyW';
+
+        // set a direction for each code
+        switch (event.code) {
+          case 'KeyA':
+            element.textContent = 'Left';
+            break;
+          case s:
+            element.textContent = 'Down';
+            break;
+          case d:
+            element.textContent = 'Right';
+            break;
+          case w:
+            element.textContent = 'Up';
+            break;
+        }
+      });
+
+      // 2 target 😆
+      // We can place one event listener on the outer section element and get the most deeply nested element.
+      const section = document.querySelector('section');
+
+      // Print the selected target
+      section.addEventListener('click', event => {
+        console.log(event.target);
+        event.target.style.color = 'red';
+        // <div id="one">One</div>
+      });
+    </script>
+  </body>
+</html>
