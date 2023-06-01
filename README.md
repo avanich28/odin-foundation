@@ -1,2 +1,2 @@
 # odin-foundation
-Learning basic HTML, CSS and Javascript from the Odin Project
+Learn basic HTML, CSS and Javascript from the Odin Project
